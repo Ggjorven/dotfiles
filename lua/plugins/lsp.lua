@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = { "clangd" } 
 })
 
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig") 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Diagnostics
@@ -62,7 +62,7 @@ cmp.setup({
 })
 
 -- Set up clangd with capabilities
-lspconfig.clangd.setup({
+vim.lsp.config('clangd', {
   capabilities = capabilities,
   cmd = {
     "clangd",
@@ -71,13 +71,14 @@ lspconfig.clangd.setup({
     "--completion-style=bundled",
     "--header-insertion=never",
   },
-  root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+  root_dir = vim.fs.root(0, { "compile_commands.json", ".git" }),
   settings = {
     clangd = {
       fallbackFlags = { "-std=c++23", "-Wall" },
     },
   },
 })
+vim.lsp.enable('clangd')
 
 -- Keybindings 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true })
