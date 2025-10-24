@@ -1,0 +1,23 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "margin-top": 0,
+  "exclusive": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-right": ["network"],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "all-outputs": true
+  },
+
+  "network": {
+    "interface": "wlan0", // change if needed
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "󰤭  Disconnected"
+  }
+}

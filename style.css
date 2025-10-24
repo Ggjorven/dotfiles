@@ -1,0 +1,32 @@
+* {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+#waybar {
+  background: #1e1e2e;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#workspaces button {
+  color: #ffffff;
+  background: transparent;
+  padding: 0 8px;
+}
+
+#workspaces button.focused {
+  background: #89b4fa;
+  color: #1e1e2e;
+}
+
+#hyprland-workspaces button {
+  padding: 0 8px;
+}
+
+#network {
+  padding: 0 10px;
+}
+
