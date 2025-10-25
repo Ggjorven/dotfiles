@@ -73,5 +73,4 @@ lazy.setup({
 			require("plugins.lsp").finish()
 		end
 	}
-	
 })

@@ -28,9 +28,14 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("x", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
--- Shift Tab
+-- Indent/unindent with Tab and Shift-Tab 
 -- Normal mode
+vim.keymap.set("n", "<Tab>", ">>", { noremap = true, silent = true })
 vim.keymap.set("n", "<S-Tab>", "<<", { noremap = true, silent = true })
 
 -- Visual mode
-vim.keymap.set("x", "<S-Tab>", "<gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+
+-- Insert mode
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true, silent = true })
