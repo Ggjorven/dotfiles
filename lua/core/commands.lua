@@ -16,4 +16,6 @@ vim.api.nvim_create_user_command("Rename", function(opts)
 
 	vim.cmd("edit " .. newName)
 	vim.cmd("bwipeout " .. oldName)
-end, { nargs = 1, complete = "file" })
+end, 
+    { nargs = 1, complete = "file" }
+)

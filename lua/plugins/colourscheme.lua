@@ -1,10 +1,10 @@
-local mason = {}
+local colourscheme = { theme = 'tokyonight' }
 
 ---------------------------------------------------------------------------
 -- Setup
 ---------------------------------------------------------------------------
-function mason.mason()
-    require('mason').setup({
+function colourscheme.tokyonight()
+    require(colourscheme.theme).setup({
         
     })
 end
@@ -12,8 +12,9 @@ end
 ---------------------------------------------------------------------------
 -- Logic
 ---------------------------------------------------------------------------
-function mason.finish()
-    
+function colourscheme.finish()
+    vim.opt.termguicolors = true
+    vim.cmd.colorscheme(colourscheme.theme)
 end
 
-return mason
+return colourscheme
