@@ -72,5 +72,21 @@ lazy.setup({
         config = function()
 			require("plugins.lsp").finish()
 		end
-	}
+	},
+
+    -- Multiple cursors (VimScript)
+    {
+        "smoka7/multicursors.nvim",
+        event = "VeryLazy",
+    },
+
+    -- Auto close brackets
+    {
+        "m4xshen/autoclose.nvim",
+        event = "InsertEnter",
+        config = function()
+            require("plugins.autoclose").autoclose()
+            require("plugins.autoclose").finish()
+        end
+    },
 })
