@@ -8,16 +8,17 @@ vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
 
 -- Basic clipboard interaction
 vim.keymap.set({'n', 'x'}, 'gy', '"+y') -- copy
-vim.keymap.set({'n', 'x'}, 'gp', '"+p') -- paste
+vim.keymap.set({'n', 'x'}, 'gp', '"+P') -- paste
 
-vim.keymap.set('i', '<C-v>', function()
-  -- Exit insert mode and feed keys: h<leader>gpi
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>h<leader>gpi', true, false, true), 'n', false)
-end, { noremap = true, silent = true })
+-- Saving
+-- Insert mode: exit insert mode, then save
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true, silent = true })
 
--- Delete text
-vim.keymap.set({'n', 'x'}, 'x', '"_x')
-vim.keymap.set({'n', 'x'}, 'X', '"_d')
+-- Normal mode: just save
+vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+
+-- Visual mode (optional, if you want to save while text is selected)
+vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true })
 
 -- Moving text
 -- Normal mode
@@ -39,3 +40,6 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
 -- Insert mode
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true, silent = true })
+
+-- Center cursor
+vim.keymap.set("n", "zz", "zz", { noremap = true, silent = true })
