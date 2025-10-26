@@ -3,6 +3,7 @@ vim.opt.mouse = 'a'
 
 -- Other
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.hlsearch = false
 vim.opt.wrap = false
 vim.opt.breakindent = true

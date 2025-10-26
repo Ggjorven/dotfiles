@@ -1,7 +1,7 @@
 local LSP = {}
 
 local minimumSeverityToShow = vim.diagnostic.severity.WARN
-local minimumTextSizeforAutocompletion = 3
+local minimumTextSizeforAutocompletion = 2
 
 local cppVersionFlag = "-std=c++23"
 local cppWarningFlag = "-Wall"
