@@ -89,4 +89,22 @@ lazy.setup({
             require("plugins.autoclose").finish()
         end
     },
+
+	-- Debugger
+	{
+		"mfussenegger/nvim-dap",
+		event = "VeryLazy",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"jay-babu/mason-nvim-dap.nvim",
+			"theHamsta/nvim-dap-virtual-text",
+		},
+		config = function()
+			require("plugins.dap").dap_virtual_text()
+			require("plugins.dap").mason_dap()
+			require("plugins.dap").dapui()
+			require("plugins.dap").finish()
+		end
+	},
 })

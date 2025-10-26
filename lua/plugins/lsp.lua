@@ -5,6 +5,9 @@ local minimumTextSizeforAutocompletion = 2
 
 local cppVersionFlag = "-std=c++23"
 local cppWarningFlag = "-Wall"
+local cppFiles = {
+	"iostream"
+}
 
 ---------------------------------------------------------------------------
 -- Setups
@@ -102,6 +105,30 @@ function LSP.finish()
     -- Keybindings 
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true })
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true, silent = true })
+
+	-- Add some CPP files
+	vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	  pattern = {
+		"/usr/include/*",
+		"/usr/local/include/*",
+		"*.tcc",
+	  },
+	  callback = function()
+		vim.bo.filetype = "cpp"
+	  end,
+	})
+
+	vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	  callback = function()
+		local name = vim.fn.expand("%:t")  -- get the file name
+		for _, f in ipairs(cppFiles) do
+		  if name == f then
+			vim.bo.filetype = "cpp"       -- force filetype
+			break
+		  end
+		end
+	  end
+	})	
 end
 
 return LSP

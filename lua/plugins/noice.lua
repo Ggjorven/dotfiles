@@ -34,6 +34,8 @@ end
 ---------------------------------------------------------------------------
 function noice.finish()
     vim.notify = require("notify")
+
+
 end
 
 return noice
