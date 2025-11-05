@@ -1,12 +1,10 @@
-local colourscheme = { theme = 'tokyonight' }
+local colourscheme = { theme = 'nord' }
 
 ---------------------------------------------------------------------------
 -- Setup
 ---------------------------------------------------------------------------
-function colourscheme.tokyonight()
-    require(colourscheme.theme).setup({
-        
-    })
+function colourscheme.nord()
+
 end
 
 ---------------------------------------------------------------------------
