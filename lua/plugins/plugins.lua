@@ -12,9 +12,9 @@ lazy.setup({
 
 	-- Theme
 	{ 
-        "folke/tokyonight.nvim",
+        "shaunsingh/nord.nvim",
         config = function()
-            require("plugins.colourscheme").tokyonight()
+            require("plugins.colourscheme").nord()
 			require("plugins.colourscheme").finish()
         end
      },
