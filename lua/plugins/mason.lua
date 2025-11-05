@@ -9,6 +9,12 @@ function mason.mason()
     })
 end
 
+function mason.tools()
+	require('mason-tool-installer').setup({
+		-- ensure_installed = { "lazygit" }
+	})
+end
+
 ---------------------------------------------------------------------------
 -- Logic
 ---------------------------------------------------------------------------

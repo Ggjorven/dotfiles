@@ -6,6 +6,12 @@ lazy.setup({
 		"mason-org/mason.nvim",
 	  	config = function()
 			require("plugins.mason").mason()
+		end
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		config = function()
+			require("plugins.mason").tools()
 			require("plugins.mason").finish()
 		end
 	},
@@ -107,4 +113,25 @@ lazy.setup({
 			require("plugins.dap").finish()
 		end
 	},
+
+	-- Lazygit
+	{
+		"kdheepak/lazygit.nvim",
+		event = "VeryLazy",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+		}
+	}
 })
