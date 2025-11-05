@@ -11,7 +11,7 @@ end
 
 function dap.mason_dap()
     require('mason-nvim-dap').setup({
-		ensure_installed = { "cppdbg" },
+		ensure_installed = { "cppdbg", "codelldb" },
 		automatic_installation = true,
 		handlers = {
 			function(config)
@@ -34,34 +34,43 @@ function dap.finish()
 	local ui = require("dapui")	
 
 	-- Configurations
-	require("dap").configurations = {
-		c = {
-			{
-				name = "Launch file",
-				type = "cppdbg",
-				request = "launch",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
-				cwd = "${workspaceFolder}",
-				stopAtEntry = false,
-				MIMode = "lldb",
-			},
-			{
-				name = "Attach to lldbserver :1234",
-				type = "cppdbg",
-				request = "launch",
-				MIMode = "lldb",
-				miDebuggerServerAddress = "localhost:1234",
-				miDebuggerPath = "/usr/bin/lldb",
-				cwd = "${workspaceFolder}",
-				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-				end,
-			},
-		},
+	local masonPath = vim.fn.stdpath("data") .. "/mason/"
+	local debuggerPath = masonPath .. "bin/codelldb"
+
+	require("dap").adapters.cppdbg = {
+	  id = 'cppdbg',
+	  type = 'executable',
+	  command = debuggerPath,
 	}
 
+	require("dap").configurations.c = {
+	  {
+		name = "Launch file",
+		type = "cppdbg",
+		request = "launch",
+		program = function()
+		  return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopAtEntry = false,
+		MIMode = "lldb",
+		miDebuggerPath = masonPath .. "bin/lldb-mi", -- <- make sure this file exists
+	  },
+	  {
+		name = "Attach to lldbserver :1234",
+		type = "cppdbg",
+		request = "launch",
+		MIMode = "lldb",
+		miDebuggerServerAddress = "localhost:1234",
+		miDebuggerPath = masonPath .. "bin/lldb-mi",
+		cwd = "${workspaceFolder}",
+		program = function()
+		  return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+	  },
+	}
+	require("dap").configurations.cpp = require("dap").configurations.c
+	
 	-- Making the UI open on debugging
 	vim.fn.sign_define("DapBreakpoint", { text = "🐞" })
 
