@@ -40,3 +40,7 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
 -- Insert mode
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true, silent = true })
+
+-- Make delete not yank into register/clipboard
+vim.keymap.set('n', 'd', '"_d', { noremap = true })
+vim.keymap.set('x', 'd', '"_d', { noremap = true })
