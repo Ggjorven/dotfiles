@@ -131,7 +131,7 @@ lazy.setup({
 		},
 
 		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+			{ "<leader>'", "<cmd>LazyGit<cr>", desc = "LazyGit" }
 		}
 	}
 })
