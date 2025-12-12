@@ -49,6 +49,15 @@ lazy.setup({
 			require("plugins.telescope").finish()
 		end
 	},
+
+	-- Files
+	{
+		"nvim-mini/mini.nvim",
+		config = function()
+			require("plugins.files").mini()
+			require("plugins.files").finish()
+		end
+	},
 	
 	-- UI (Notification & Commands)
 	{
