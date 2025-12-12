@@ -128,7 +128,25 @@ function LSP.finish()
 		  end
 		end
 	  end
-	})	
+	})
+
+	-- Add error jumping commands
+	vim.api.nvim_create_user_command("NextError", function()
+	  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end, {})
+
+	vim.api.nvim_create_user_command("PrevError", function()
+	  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end, {})
+
+	-- Add keybinds for error jumping
+	vim.keymap.set("n", "]e", function()
+	  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+	end, { desc = "Next Error" })
+
+	vim.keymap.set("n", "[e", function()
+	  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	end, { desc = "Previous Error" })
 end
 
 return LSP
