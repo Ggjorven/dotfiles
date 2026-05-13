@@ -1,6 +1,9 @@
 -- Allow all mouse actions
 vim.opt.mouse = 'a'
 
+-- Leader key (space)
+vim.g.mapleader = " "
+
 -- Other
 vim.opt.number = true
 vim.opt.relativenumber = true
