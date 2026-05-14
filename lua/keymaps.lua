@@ -6,16 +6,16 @@
 -- Shortcuts
 -- vim.keymap.set({'n', 'x', 'o'}, '<leader>h', '^') -- Go to left of line -- Replaced by: '^'
 -- vim.keymap.set({'n', 'x', 'o'}, '<leader>l', 'g_') -- Go to right of line -- Replaced by: '$'
-vim.keymap.set('n', '<leader>a', ':keepjumps normal! ggVG<cr>') -- Basically Ctrl + A
+vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>") -- Basically Ctrl + A
 
 -- Basic clipboard interaction
--- vim.keymap.set({'n', 'x'}, 'gy', '"+y', { noremap = true, silent = true }) -- Copy -- Replaced by 'y'
--- vim.keymap.set({'n', 'x'}, 'gp', '"+P', { noremap = true, silent = true }) -- Paste -- Replaced by 'p'
+vim.keymap.set({"n", "x"}, "gy", "\"+y", { noremap = true, silent = true }) -- Copy
+vim.keymap.set({"n", "x"}, "gp", "\"+P", { noremap = true, silent = true }) -- Paste
 
 -- Saving
--- vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true, silent = true }) -- Replaced by :w
--- vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Replaced by :w
--- vim.keymap.set('v', '<C-s>', '<Esc>:w<CR>', { noremap = true, silent = true }) -- Replaced by :w
+-- vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true }) -- Replaced by :w
+-- vim.keymap.set("n", "<C-s>", ":w<CR>", { noremap = true, silent = true }) -- Replaced by :w
+-- vim.keymap.set("v", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true }) -- Replaced by :w
 
 -- Moving text
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
@@ -35,5 +35,5 @@ vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 -- vim.keymap.set("i", "<S-Tab>", "<C-d>", { noremap = true, silent = true }) -- Replaced by Normal & Visual mode!
 
 -- Make delete not yank into register/clipboard
-vim.keymap.set('n', 'd', '"_d', { noremap = true })
-vim.keymap.set('x', 'd', '"_d', { noremap = true })
+-- vim.keymap.set('n', 'd', '"_d', { noremap = true }) -- Removed
+-- vim.keymap.set('x', 'd', '"_d', { noremap = true }) -- Removed
