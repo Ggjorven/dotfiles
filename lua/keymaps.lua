@@ -10,7 +10,8 @@ vim.keymap.set("n", "<leader>a", ":keepjumps normal! ggVG<cr>") -- Basically Ctr
 
 -- Basic clipboard interaction
 vim.keymap.set({"n", "x"}, "gy", "\"+y", { noremap = true, silent = true }) -- Copy
-vim.keymap.set({"n", "x"}, "gp", "\"+P", { noremap = true, silent = true }) -- Paste
+vim.keymap.set({"n", "x"}, "gp", "\"+p", { noremap = true, silent = true }) -- Paste
+vim.keymap.set({"n", "x"}, "gP", "\"+P", { noremap = true, silent = true }) -- Paste
 
 -- Saving
 -- vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>a", { noremap = true, silent = true }) -- Replaced by :w
