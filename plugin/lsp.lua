@@ -1,4 +1,4 @@
-vim.pack.add{
+vim.pack.add({
 	{
 		src = "https://github.com/neovim/nvim-lspconfig",
 		name = "lspconfig"
@@ -20,7 +20,7 @@ vim.pack.add{
 		name = "blink-cmp",
 		version = "v1"
 	}
-}
+})
 
 ----------------------------------------------
 -- Setup
@@ -38,7 +38,7 @@ require("blink-cmp").setup({
 	completion = {
 		list = {
 			selection = {
-				preselect = false,
+				preselect = true,
 				auto_insert = false,  -- only inserts on explicit accept
 			},
 		},
@@ -71,11 +71,12 @@ require("blink-cmp").setup({
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
+			hint = { enable = true },
 			runtime = {
 				version = 'LuaJIT',
-		  },
+			},
 			diagnostics = {
-			-- Get the language server to recognize the `vim` global
+				-- Get the language server to recognize the `vim` global
 				globals = {
 					'vim',
 					'require'
@@ -91,3 +92,11 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+----------------------------------------------
+-- Keymaps
+----------------------------------------------
+vim.keymap.set("n", "<leader>h", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+	vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
+end)
