@@ -17,6 +17,10 @@
       "rev": "4d9647d7b14dd2756578761f8cc2cf80f671b926",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "markview": {
+      "rev": "dbf74b6db11c1468d5128a38b26b6d99dc7316e9",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason": {
       "rev": "e54f5bf5f12c560da31c17eee5b3e1bd369f3ff9",
       "src": "https://github.com/mason-org/mason.nvim"
