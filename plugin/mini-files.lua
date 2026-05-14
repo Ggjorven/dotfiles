@@ -1,9 +1,9 @@
 vim.pack.add({
 	{
-		src = "https://github.com/nvim-mini/mini.files", 
-		name = "mini-files", 
+		src = "https://github.com/nvim-mini/mini.files",
+		name = "mini-files",
 		version = "stable"
-	} 
+	}
 })
 
 ----------------------------------------------
