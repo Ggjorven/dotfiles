@@ -18,6 +18,8 @@ Leader key: `Space`
 | `gg` | First line of file |
 | `G` | Last line of file |
 | `{N}G` | Go to line N |
+| `{` | Jump to top next blank line |
+| `}` | Jump to bottom next blank line |
 
 ---
 

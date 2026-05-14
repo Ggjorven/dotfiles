@@ -24,6 +24,14 @@ vim.pack.add({
 		src = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		name = "lsp-lines"
 	},
+	{
+		src = "https://github.com/L3MON4D3/LuaSnip",
+		name = "luasnip"
+	},
+	{
+		src = "https://github.com/rafamadriz/friendly-snippets",
+		name = "friendly-snippets"
+	}
 })
 
 ----------------------------------------------
@@ -80,23 +88,27 @@ require("blink-cmp").setup({
 			}
     	},
 	},
-	accept = {
-		auto_brackets = {
-			enabled = true,
-			blocked_filetypes = {},
-		},
-	},
 	keymap = {
 		preset = "default",
-		["<CR>"]   = { "fallback" }, -- Disable enter
+		["<C+l>"] = {
+			function()
+				local luasnip = require("luasnip")
+				if luasnip.locally_jumpable(1) then
+					luasnip.jump(1)
+					return true
+				end
+			end,
+    "fallback"
+		}, -- Disable enter
 		["<C-CR>"] = { "accept", "fallback" },
-		["<Tab>"]   = { "select_next", "fallback" },
+		["<Tab>"] = { "select_next", "fallback" },
 		["<S-Tab>"] = { "select_prev", "fallback" }
 	}
 })
 require("lsp_lines").setup()
 require("lsp_lines").toggle()
 vim.diagnostic.config({ virtual_lines = true })
+require("luasnip.loaders.from_vscode").lazy_load()
 
 ----------------------------------------------
 -- Language configurations
@@ -234,7 +246,7 @@ vim.lsp.config("rust_analyzer", {
                     hideNamedConstructor         = false,
                 },
             },
-            checkOnSave = { command = "clippy" },
+            checkOnSave = true,
         },
     },
 })
