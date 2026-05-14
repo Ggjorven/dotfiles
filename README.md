@@ -65,6 +65,8 @@ Leader key: `Space`
 |-----|--------|
 | `K` | Hover docs / function signature |
 | `<leader>h` | Toggle inlay hints |
+| `[d` | Previous diagnostic |
+| `]d` | Next diagnostic |
 
 ---
 
@@ -74,8 +76,7 @@ Leader key: `Space`
 |-----|--------|
 | `<Tab>` | Select next item |
 | `<S-Tab>` | Select previous item |
-| `<C-CR>` | Accept selected item |
-| `<CR>` | Fallback (does NOT accept) |
+| `<Ctrl-Enter>` | Accept selected item |
 
 ---
 
@@ -205,3 +206,4 @@ Leader key: `Space`
 | `J` | Join line below to current |
 | `za` | Toggle fold |
 | `q{r}` / `@{r}` | Record / replay macro in register `r` |
+| `zz` | Center view window |
