@@ -52,15 +52,15 @@ cursor = "#d8dee9"
 size = 12.0
 
 [font.normal]
-family = "JetBrains Mono"
+family = "JetBrains Mono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "JetBrains Mono"
+family = "JetBrains Mono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "JetBrains Mono"
+family = "JetBrains Mono Nerd Font"
 style = "Italic"
 
 [font.offset]
