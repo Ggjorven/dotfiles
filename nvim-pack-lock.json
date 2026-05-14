@@ -5,6 +5,18 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "'v1'"
     },
+    "dap": {
+      "rev": "45a69eba683a2c448dd9ecfc4de89511f0646b5f",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "dap-view": {
+      "rev": "b5cc6e1c4cd188478fdad2e0b58dbca08fd6d363",
+      "src": "https://github.com/igorlfs/nvim-dap-view"
+    },
+    "dap-virtual-text": {
+      "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
+    },
     "flash": {
       "rev": "fcea7ff883235d9024dc41e638f164a450c14ca2",
       "src": "https://github.com/folke/flash.nvim"
