@@ -14,6 +14,11 @@ vim.pack.add{
 	{
 		src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
 		name = "mason-tool-installer"
+	},
+	{
+		src = "https://github.com/saghen/blink.cmp",
+		name = "blink-cmp",
+		version = "v1"
 	}
 }
 
@@ -28,9 +33,39 @@ require("mason-tool-installer").setup({
 		"stylua"
 	}
 })
+require("blink-cmp").setup({
+	signature = { enabled = true },
+	completion = {
+		list = {
+			selection = {
+				preselect = false,
+				auto_insert = false,  -- only inserts on explicit accept
+			},
+		},
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 500
+		},
+    	menu = {
+			auto_show = true,
+      		auto_show_delay_ms = 0,
+			draw = {
+				treesitter = { "lsp" },
+				columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } }
+			}
+    	},
+	},
+	keymap = {
+		preset = "default",
+		["<CR>"]   = { "fallback" }, -- Disable enter
+		["<C-CR>"] = { "accept", "fallback" },
+		["<Tab>"]   = { "select_next", "fallback" },
+		["<S-Tab>"] = { "select_prev", "fallback" }
+	}
+})
 
 ----------------------------------------------
--- Setup
+-- Language configurations
 ----------------------------------------------
 -- LUA (removes vim. warning)
 vim.lsp.config("lua_ls", {
