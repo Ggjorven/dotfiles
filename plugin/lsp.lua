@@ -227,20 +227,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local bufnr = args.buf
 
-		local map = function(keys, func, desc)
-			vim.keymap.set('n', keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
-		end
-
-		map("<leader>h>", function()
+		vim.keymap.set("n", "<leader>h", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 			vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
-		end, "Toggle inlay hints")
+		end, { buffer = bufnr, desc = "Toggle inlay hints" })
 
-		map("gd", vim.lsp.buf.definition, "Goto Definition")
-		map("gr", vim.lsp.buf.references, "Goto References")
-		map("K", vim.lsp.buf.hover, "Hover Documentation")
-		map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-		map("<leader>cr", vim.lsp.buf.rename, "Rename symbol")
-		map("<leader>cd", vim.diagnostic.open_float, "Show diagnostic")
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Goto definition" })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Goto references" })
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
+		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
+		-- vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show diagnostic" })
+		vim.keymap.set("n", "<leader>cd", function()
+			require("lsp_lines").toggle()
+		end, { buffer = bufnr, desc = "Toggle diagnostics" })
 	end,
 })
