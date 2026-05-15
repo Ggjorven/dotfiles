@@ -1,15 +1,15 @@
 vim.pack.add({
 	{
-		src = "https://github.com/nvim-lua/plenary.nvim", 
+		src = "https://github.com/nvim-lua/plenary.nvim",
 		name = "plenary",
 	},
 	{
-		src = "https://github.com/nvim-pack/nvim-spectre", 
+		src = "https://github.com/nvim-pack/nvim-spectre",
 		name = "spectre",
 		requires = {
 			"nvim-lua/plenary.nvim",
 		},
-	} 
+	}
 })
 
 ----------------------------------------------
