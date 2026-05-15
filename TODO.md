@@ -5,4 +5,4 @@
 - Debuggers
 - Auto brackets
 - Floating terminal
-- Telescope
+- Telescope X

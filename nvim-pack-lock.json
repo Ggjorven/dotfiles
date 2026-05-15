@@ -73,6 +73,15 @@
     "spectre": {
       "rev": "72f56f7585903cd7bf92c665351aa585e150af0f",
       "src": "https://github.com/nvim-pack/nvim-spectre"
+    },
+    "telescope": {
+      "rev": "5255aa27c422de944791318024167ad5d40aad20",
+      "src": "https://github.com/nvim-telescope/telescope.nvim",
+      "version": "'v0.2.2'"
+    },
+    "telescope-fzf-native": {
+      "rev": "b25b749b9db64d375d782094e2b9dce53ad53a40",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
     }
   }
 }
