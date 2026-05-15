@@ -4,5 +4,5 @@
 - Snippets X
 - Debuggers
 - Auto brackets
-- Floating terminal
+- Floating terminal X
 - Telescope X

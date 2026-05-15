@@ -189,6 +189,7 @@ Leader key: `Space`
 | `:bn` / `:bp` | Next / previous buffer |
 | `:bd` | Delete (close) buffer |
 | `<C-o>` | Go back to previous buffer |
+| `<C-\>` | Open/close terminal |
 
 ---
 
