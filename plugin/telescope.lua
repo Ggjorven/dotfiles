@@ -19,6 +19,11 @@ vim.pack.add({
 })
 
 ----------------------------------------------
+-- Setup
+----------------------------------------------
+require("telescope").load_extension("notify")
+
+----------------------------------------------
 -- Keymaps
 ----------------------------------------------
 local telescope = require("telescope.builtin")
@@ -41,6 +46,4 @@ vim.keymap.set("n", "<leader>fs", function()
     telescope.treesitter()
   end
 end, { desc = "Telescope symbols" })
-vim.keymap.set("n", "<leader>fn", function()
-	require('telescope').extensions.notify.notify()
-end, { desc = "Telescope notifications" })
+vim.keymap.set("n", "<leader>fn", "<cmd>Telescope notify<cr>", { desc = "Telescope notifications" })

@@ -121,12 +121,18 @@ Leader key: `Space`
 
 ---
 
-## File Explorer (mini.files)
+## File Explorer (mini.files & telescope)
 
 | Key | Action |
 |-----|--------|
 | `<leader>e` | Open MiniFiles (root) |
 | `<leader>E` | Open MiniFiles at current buffer's directory |
+| `<leader>ff` | Open list of files in git directory or root folder |
+| `<leader>fF` | Open list of files at root folder |
+| `<leader>fb` | Open list of open buffers |
+| `<leader>fg` | Open list of grep results |
+| `<leader>fn` | Open notification history |
+
 
 ---
 
