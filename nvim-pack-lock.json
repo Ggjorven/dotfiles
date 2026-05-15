@@ -62,6 +62,10 @@
       "src": "https://github.com/nvim-mini/mini.files",
       "version": "'stable'"
     },
+    "notify": {
+      "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
+      "src": "https://github.com/rcarriga/nvim-notify"
+    },
     "onedark": {
       "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
       "src": "https://github.com/navarasu/onedark.nvim"

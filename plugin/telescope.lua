@@ -41,3 +41,6 @@ vim.keymap.set("n", "<leader>fs", function()
     telescope.treesitter()
   end
 end, { desc = "Telescope symbols" })
+vim.keymap.set("n", "<leader>fn", function()
+	require('telescope').extensions.notify.notify()
+end, { desc = "Telescope notifications" })
