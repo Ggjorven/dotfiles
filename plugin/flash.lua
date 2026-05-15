@@ -9,6 +9,12 @@ vim.pack.add({
 -- Setup
 ----------------------------------------------
 require("flash").setup({
+	modes = {
+		char = {
+			enabled = true,
+			keys = {}, -- Disabled f/F, t/T & ;/,
+		}
+	}
 })
 
 ----------------------------------------------
