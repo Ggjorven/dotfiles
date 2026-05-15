@@ -4,18 +4,6 @@ vim.pack.add({
 		name = "lspconfig"
 	},
 	{
-		src = "https://github.com/mason-org/mason.nvim",
-		name = "mason"
-	},
-	{
-		src = "https://github.com/mason-org/mason-lspconfig.nvim",
-		name = "mason-lspconfig"
-	},
-	{
-		src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-		name = "mason-tool-installer"
-	},
-	{
 		src = "https://github.com/saghen/blink.cmp",
 		name = "blink-cmp",
 		version = "v1"
@@ -37,36 +25,6 @@ vim.pack.add({
 ----------------------------------------------
 -- Setup
 ----------------------------------------------
-require("mason").setup()
-require("mason-lspconfig").setup()
-require("mason-tool-installer").setup({
-	ensure_installed = {
-		"lua_ls",
-		"stylua",
-
-		"pyright",
-
-		"clangd",
-		-- "cmake-language-server", -- Requires python <= 3.14
-
-		"csharp-language-server",
-		-- TODO: Blazor
-
-		"sqlls",
-
-		"html-lsp",
-		"css-lsp",
-
-		"haskell-language-server",
-		-- "haskell-debug-adapter", -- FAILED to build
-
-		"rust-analyzer",
-
-		"jdtls",
-		"java-debug-adapter",
-		"java-test",
-	}
-})
 require("blink-cmp").setup({
 	signature = { enabled = true },
 	completion = {

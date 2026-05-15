@@ -1,7 +1,8 @@
 # TODO
 
-- LSP
-- Snippets
+- LSP X
+- Snippets X
 - Debuggers
 - Auto brackets
 - Floating terminal
+- Telescope
