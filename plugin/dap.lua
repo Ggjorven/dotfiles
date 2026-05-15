@@ -43,7 +43,7 @@ require("dap-view").setup({
 ----------------------------------------------
 local dap = require("dap")
 
--- C/C++
+-- Adapter
 dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
@@ -52,17 +52,23 @@ dap.adapters.codelldb = {
         args = { "--port", "${port}" },
     },
 }
+
+-- C/C++
 dap.configurations.cpp = {
     {
         name    = "Launch (codelldb)",
         type    = "codelldb",
         request = "launch",
         program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+            local path = vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+            if path == "" or vim.fn.filereadable(path) == 0 then
+                vim.notify("Invalid executable: " .. path, vim.log.levels.ERROR)
+                return dap.ABORT
+            end
+            return path
         end,
-        cwd            = "${workspaceFolder}",
-        stopOnEntry    = false,
-        args           = {},
+        args        = {}, -- TODO Arguments parsing somehow without the args appearing before the executable text
+        cwd         = "${workspaceFolder}"
     },
     {
         name      = "Attach to process",

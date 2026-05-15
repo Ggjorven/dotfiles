@@ -188,6 +188,7 @@ Leader key: `Space`
 | `<C-w>q` | Close split |
 | `:bn` / `:bp` | Next / previous buffer |
 | `:bd` | Delete (close) buffer |
+| `<C-o>` | Go back to previous buffer |
 
 ---
 
