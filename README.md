@@ -79,6 +79,7 @@ Leader key: `Space`
 | `<Tab>` | Select next item |
 | `<S-Tab>` | Select previous item |
 | `<Ctrl-Enter>` | Accept selected item |
+| `<Ctrl-l>` | Next snippet value |
 
 ---
 

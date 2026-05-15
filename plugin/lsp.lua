@@ -50,6 +50,7 @@ require("mason-tool-installer").setup({
 		-- "cmake-language-server", -- Requires python <= 3.14
 
 		"csharp-language-server",
+		-- TODO: Blazor
 
 		"sqlls",
 
@@ -72,7 +73,7 @@ require("blink-cmp").setup({
 		list = {
 			selection = {
 				preselect = true,
-				auto_insert = false,  -- only inserts on explicit accept
+				auto_insert = false, -- only inserts on explicit accept
 			},
 		},
 		documentation = {
@@ -88,23 +89,19 @@ require("blink-cmp").setup({
 			}
     	},
 	},
+	snippets = {
+        preset = "luasnip", -- hands snippet control to luasnip
+    },
 	keymap = {
 		preset = "default",
-		["<C+l>"] = {
-			function()
-				local luasnip = require("luasnip")
-				if luasnip.locally_jumpable(1) then
-					luasnip.jump(1)
-					return true
-				end
-			end,
-    "fallback"
-		}, -- Disable enter
+		["<CR>"] = { "fallback" }, -- Disable enter
 		["<C-CR>"] = { "accept", "fallback" },
 		["<Tab>"] = { "select_next", "fallback" },
-		["<S-Tab>"] = { "select_prev", "fallback" }
+		["<S-Tab>"] = { "select_prev", "fallback" },
+		["<C-l>"] = { "snippet_forward", "fallback" }
 	}
 })
+vim.lsp.inlay_hint.enable(true)
 require("lsp_lines").setup()
 require("lsp_lines").toggle()
 vim.diagnostic.config({ virtual_lines = true })
