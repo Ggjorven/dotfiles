@@ -147,10 +147,8 @@ Leader key: `Space`
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>S` | Normal | Toggle Spectre (project-wide search & replace) |
-| `<leader>sw` | Normal | Search word under cursor |
+| `<leader>s` | Normal | Toggle Spectre (project-wide search & replace) |
 | `<leader>sw` | Visual | Search selected text |
-| `<leader>sp` | Normal | Search in current file only |
 
 ---
 
