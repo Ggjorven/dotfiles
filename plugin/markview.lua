@@ -10,6 +10,6 @@ vim.pack.add({
 ----------------------------------------------
 require("markview").setup({
 	preview = {
-		enable = true
+		enable = false
 	}
 });
