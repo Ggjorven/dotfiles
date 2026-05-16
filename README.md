@@ -68,9 +68,9 @@ Leader key: `Space`
 | `gd` | Go to definition |
 | `gr` | Go to references |
 | `K` | Hover docs / function signature |
-| `<leader>h` | Toggle inlay hints |
 | `[d` | Previous diagnostic |
 | `]d` | Next diagnostic |
+| `<leader>ch` | Toggle inlay hints |
 | `<leader>ca` | Code action (fix available) |
 | `<leader>cr` | Rename symbol |
 | `<leader>cd` | Show diagnostic |
@@ -138,6 +138,7 @@ Leader key: `Space`
 | `<leader>fb` | Open list of open buffers |
 | `<leader>fg` | Open list of grep results |
 | `<leader>fn` | Open notification history |
+| `<leader>fd` | Open workspace diagnostics |
 
 
 ---

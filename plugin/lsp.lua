@@ -227,11 +227,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local bufnr = args.buf
 
-		vim.keymap.set("n", "<leader>h", function()
-			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-			vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
-		end, { buffer = bufnr, desc = "Toggle inlay hints" })
-
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr, desc = "Goto definition" })
 		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = bufnr, desc = "Goto references" })
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
@@ -241,5 +236,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>cd", function()
 			require("lsp_lines").toggle()
 		end, { buffer = bufnr, desc = "Toggle diagnostics" })
+		vim.keymap.set("n", "<leader>ch", function()
+			vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end, { buffer = bufnr, desc = "Toggle inlay hints" })
 	end,
 })
