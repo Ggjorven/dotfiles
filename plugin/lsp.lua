@@ -59,9 +59,9 @@ require("blink-cmp").setup({
 		["<C-l>"] = { "snippet_forward", "fallback" }
 	}
 })
-vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.inlay_hint.enable(true)
 require("lsp_lines").setup()
-require("lsp_lines").toggle()
+-- require("lsp_lines").toggle()
 vim.diagnostic.config({ virtual_lines = true })
 require("luasnip.loaders.from_vscode").lazy_load()
 
