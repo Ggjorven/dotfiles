@@ -186,6 +186,11 @@ vim.lsp.config("hls", {
 vim.lsp.config("rust_analyzer", {
 	settings = {
 		["rust-analyzer"] = {
+			rustfmt = {
+                overrideCommand = {
+                    "rustup", "run", "nightly", "rustfmt"
+                },
+            },
 			inlayHints = {
 				bindingModeHints        = { enable = true },
 				chainingHints           = { enable = true },
@@ -241,4 +246,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 		end, { buffer = bufnr, desc = "Toggle inlay hints" })
 	end,
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.rs",
+    callback = function()
+        vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
+    end,
 })
