@@ -36,6 +36,7 @@ require("mason-tool-installer").setup({
 		"lua_ls",
 		"stylua",
 
+		-- Requires node and npm/x
 		"pyright",
 		"debugpy",
 
@@ -44,20 +45,26 @@ require("mason-tool-installer").setup({
 		"cpptools",
 		-- "cmake-language-server", -- Requires python <= 3.14
 
+		-- Requires dotnet (10)
 		"csharp-language-server",
 		"netcoredbg",
 		-- TODO: Blazor
 
 		"sqlls",
 
+		-- Requires node and nvpm
 		"html-lsp",
 		"css-lsp",
 
+		-- Requires ghcup
+		-- Optional: cabal install ormolu for auto tabs to spaces
 		"haskell-language-server",
 		-- "haskell-debug-adapter", -- FAILED to build
 
+		-- Requires rustup with rustfmt (nightly)
 		"rust-analyzer",
 
+		-- Requires java sdk (21+)
 		"jdtls",
 		"java-debug-adapter",
 		"java-test",
