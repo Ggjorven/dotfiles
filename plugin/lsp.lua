@@ -224,6 +224,19 @@ vim.lsp.config("jdtls", {
 	},
 })
 
+vim.lsp.enable({
+    "lua_ls",
+    "pyright",
+    "clangd",
+    "csharp_ls",
+    "sqlls",
+    "html",
+    "cssls",
+    "hls",
+    "rust_analyzer",
+    "jdtls",
+})
+
 ----------------------------------------------
 -- Keymaps
 ----------------------------------------------
