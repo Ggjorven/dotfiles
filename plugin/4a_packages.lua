@@ -68,5 +68,9 @@ require("mason-tool-installer").setup({
 		"jdtls",
 		"java-debug-adapter",
 		"java-test",
+
+		"docker-compose-language-service",
+		"docker-language-server",
+		"dockerfile-language-server"
 	}
 })

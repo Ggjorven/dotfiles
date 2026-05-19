@@ -235,6 +235,9 @@ vim.lsp.enable({
     "hls",
     "rust_analyzer",
     "jdtls",
+	"dockerls",
+    "docker_compose_language_service",
+    "docker_language_server",
 })
 
 ----------------------------------------------
