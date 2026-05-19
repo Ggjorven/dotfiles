@@ -113,6 +113,7 @@ Leader key: `Space`
 | `u` | Normal | Undo |
 | `<C-r>` | Normal | Redo |
 | `.` | Normal | Repeat last change |
+| `gc` | Visual | Comment selection |
 
 ---
 
