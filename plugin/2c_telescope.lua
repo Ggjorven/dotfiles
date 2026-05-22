@@ -28,14 +28,14 @@ require("telescope").load_extension("notify")
 ----------------------------------------------
 local telescope = require("telescope.builtin")
 
-vim.keymap.set("n", "<leader>ff", function()
+vim.keymap.set("n", "<leader>fF", function()
   local ok = pcall(telescope.git_files)
   if not ok then
     telescope.find_files()
   end
 end, { desc = "Telescope git/find files" })
 
-vim.keymap.set("n", "<leader>fF", telescope.find_files, { desc = "Telescope find files" })
+vim.keymap.set("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fs", function()
