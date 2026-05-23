@@ -28,10 +28,10 @@ require("mini.files").setup({
 -- Keymaps
 ----------------------------------------------
 vim.keymap.set("n", "<leader>e", function()
-	require("mini.files").open()
-end, { desc = "Open MiniFiles" })
+	local buf_dir = vim.fn.expand("%:p:h") -- get current buffer"s directory
+	require("mini.files").open(buf_dir)
+end, { desc = "Open MiniFiles at current buffer directory" })
 
 vim.keymap.set("n", "<leader>E", function()
-    local buf_dir = vim.fn.expand("%:p:h") -- get current buffer"s directory
-    require("mini.files").open(buf_dir)
-end, { desc = "Open MiniFiles at current buffer directory" })
+	require("mini.files").open()
+end, { desc = "Open MiniFiles" })

@@ -132,8 +132,8 @@ Leader key: `Space`
 
 | Key | Action |
 |-----|--------|
-| `<leader>e` | Open MiniFiles (root) |
-| `<leader>E` | Open MiniFiles at current buffer's directory |
+| `<leader>e` | Open MiniFiles at current buffer's directory |
+| `<leader>E` | Open MiniFiles (root) |
 | `<leader>ff` | Open list of files at root folder |
 | `<leader>fF` | Open list of files in git directory or root folder |
 | `<leader>fb` | Open list of open buffers |
