@@ -23,18 +23,18 @@ local function hl(name, attr)
 end
 
 local theme = {
-  normal = {
-    a = { fg = hl("Normal",    "bg"), bg = hl("Function",  "fg"), gui = "bold" },
-    b = { fg = hl("Normal",    "fg"), bg = hl("StatusLine", "bg") },
-    c = { fg = hl("Comment",   "fg"), bg = hl("Normal",     "bg") },
-  },
-  insert  = { a = { fg = hl("Normal", "bg"), bg = hl("String",    "fg"), gui = "bold" } },
-  visual  = { a = { fg = hl("Normal", "bg"), bg = hl("Special",   "fg"), gui = "bold" } },
-  replace = { a = { fg = hl("Normal", "bg"), bg = hl("Constant",  "fg"), gui = "bold" } },
-  command = { a = { fg = hl("Normal", "bg"), bg = hl("Identifier","fg"), gui = "bold" } },
-  inactive = {
-    c = { fg = hl("Comment", "fg"), bg = hl("Normal", "bg") },
-  },
+	normal = {
+		a = { fg = hl("Normal",    "bg"), bg = hl("Function",  "fg"), gui = "bold" },
+		b = { fg = hl("Normal",    "fg"), bg = hl("StatusLine", "bg") },
+		c = { fg = hl("Comment",   "fg"), bg = hl("Normal",     "bg") },
+	},
+	insert  = { a = { fg = hl("Normal", "bg"), bg = hl("String",    "fg"), gui = "bold" } },
+	visual  = { a = { fg = hl("Normal", "bg"), bg = hl("Special",   "fg"), gui = "bold" } },
+	replace = { a = { fg = hl("Normal", "bg"), bg = hl("Constant",  "fg"), gui = "bold" } },
+	command = { a = { fg = hl("Normal", "bg"), bg = hl("Identifier","fg"), gui = "bold" } },
+	inactive = {
+		c = { fg = hl("Comment", "fg"), bg = hl("Normal", "bg") },
+	},
 }
 
 ----------------------------------------------
@@ -58,7 +58,15 @@ require("lualine").setup({
 		lualine_a = {"mode"},
 		lualine_b = {"branch"},
 		lualine_c = {},
-		lualine_x = {"diff", "diagnostics", "filename"},
+		lualine_x = {
+			"diff", 
+			{
+				"diagnostics",
+				sections = { "error", "warn", "info" },
+				sources = { "nvim_lsp", "nvim_diagnostic" },
+			},
+			"filename"
+		},
 		lualine_y = {},
 		lualine_z = {}
 	},
