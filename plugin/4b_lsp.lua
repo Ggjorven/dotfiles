@@ -9,10 +9,6 @@ vim.pack.add({
 		version = "v1"
 	},
 	{
-		src = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		name = "lsp-lines"
-	},
-	{
 		src = "https://github.com/L3MON4D3/LuaSnip",
 		name = "luasnip"
 	},
@@ -60,8 +56,6 @@ require("blink-cmp").setup({
 	}
 })
 -- vim.lsp.inlay_hint.enable(true)
-require("lsp_lines").setup()
-require("lsp_lines").toggle()
 vim.diagnostic.config({
 	virtual_text = {
 		severity = { min = vim.diagnostic.severity.INFO }
@@ -266,11 +260,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
 		-- vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show diagnostic" })
 		vim.keymap.set("n", "<leader>cd", function()
-			require("lsp_lines").toggle()
+			if vim.diagnostic.is_enabled() then
+				vim.diagnostic.enable(false)
+				vim.notify("Diagnostics disabled")
+			else
+				vim.diagnostic.enable(true)
+				vim.notify("Diagnostics enabled")
+			end
 		end, { buffer = bufnr, desc = "Toggle diagnostics" })
 		vim.keymap.set("n", "<leader>ch", function()
-			vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+			vim.notify(vim.lsp.inlay_hint.is_enabled() and "Inlay hints enabled" or "Inlay hints disabled")
 		end, { buffer = bufnr, desc = "Toggle inlay hints" })
 	end,
 })
