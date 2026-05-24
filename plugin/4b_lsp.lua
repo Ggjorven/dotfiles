@@ -61,8 +61,19 @@ require("blink-cmp").setup({
 })
 -- vim.lsp.inlay_hint.enable(true)
 require("lsp_lines").setup()
--- require("lsp_lines").toggle()
-vim.diagnostic.config({ virtual_lines = true })
+require("lsp_lines").toggle()
+vim.diagnostic.config({
+	virtual_text = {
+		severity = { min = vim.diagnostic.severity.INFO }
+	},
+	signs = {
+		severity = { min = vim.diagnostic.severity.INFO }
+	},
+	underline = {
+		severity = { min = vim.diagnostic.severity.INFO }
+	},
+	virtual_lines = false
+})
 require("luasnip.loaders.from_vscode").lazy_load()
 
 ----------------------------------------------
