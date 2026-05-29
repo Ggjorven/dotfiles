@@ -73,7 +73,8 @@ Leader key: `Space`
 | `<leader>ch` | Toggle inlay hints |
 | `<leader>ca` | Code action (fix available) |
 | `<leader>cr` | Rename symbol |
-| `<leader>cd` | Show diagnostic |
+| `<leader>cf` | Show floating diagnostic |
+| `<leader>cd` | Show diagnostics |
 
 
 ---

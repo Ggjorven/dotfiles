@@ -258,7 +258,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-		-- vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show diagnostic" })
+		vim.keymap.set("n", "<leader>cf", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show floating diagnostic" })
 		vim.keymap.set("n", "<leader>cd", function()
 			if vim.diagnostic.is_enabled() then
 				vim.diagnostic.enable(false)
