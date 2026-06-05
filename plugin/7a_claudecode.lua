@@ -1,23 +1,40 @@
 vim.pack.add({
 	{
-		src = "https://github.com/akinsho/toggleterm.nvim",
-		name = "toggleterm",
-	},
+		src = "https://github.com/greggh/claude-code.nvim",
+		name = "claude-code"
+	}
 })
 
 ----------------------------------------------
 -- Setup
 ----------------------------------------------
-require("toggleterm").setup({
-	open_mapping = [[<C-\>]],
-	direction = "float",
+require("claude-code").setup({
+	window = {
+		split_ratio = 0.5,
+		position = "float",
+		enter_insert = true,
+	},
+
+	command = "claude",        -- Command used to launch Claude Code
+	
+	keymaps = {
+		toggle = {
+			normal = false,
+			terminal = false,
+		},
+
+		window_navigation = true,
+		scrolling = true,
+	}
 })
 
 ----------------------------------------------
 -- Keymaps
 ----------------------------------------------
+vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude Code" })
+
 vim.api.nvim_create_autocmd("TermOpen", {
-	pattern = "term://*toggleterm#*",
+	pattern = "term://*claude*",
 	callback = function()
 		-- Single Esc passes through (e.g. to fzf, lazygit, etc.)
 		vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, buffer = true })
