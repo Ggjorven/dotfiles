@@ -175,6 +175,34 @@ vim.lsp.config("cssls", {
 	},
 })
 
+-- JS / TS (mason: typescript-language-server)
+vim.lsp.config("ts_ls", {
+    settings = {
+        typescript = {
+            inlayHints = {
+                includeInlayParameterNameHints          = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints  = true,
+                includeInlayVariableTypeHints           = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints        = true,
+            },
+        },
+        javascript = {
+            inlayHints = {
+                includeInlayParameterNameHints          = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayFunctionParameterTypeHints  = true,
+                includeInlayVariableTypeHints           = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayEnumMemberValueHints        = true,
+            },
+        },
+    },
+})
+
 -- HASKELL (mason: haskell-language-server)
 vim.lsp.config("hls", {
 	settings = {
@@ -238,6 +266,7 @@ vim.lsp.enable({
     "html",
     "cssls",
     "hls",
+	"ts_ls",
     "rust_analyzer",
     "jdtls",
 	"dockerls",

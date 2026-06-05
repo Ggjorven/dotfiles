@@ -55,6 +55,7 @@ require("mason-tool-installer").setup({
 		-- Requires node and nvpm
 		"html-lsp",
 		"css-lsp",
+		"typescript-language-server",
 
 		-- Requires ghcup
 		-- Optional: cabal install ormolu for auto tabs to spaces
