@@ -40,5 +40,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, buffer = true })
 		-- Double Esc exits terminal mode
 		vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, buffer = true })
+
+		-- Toggleterm like keymap to close
+		vim.keymap.set("t", "<C-\\>", function()
+			vim.api.nvim_feedkeys(
+			vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true), "n", false)
+			vim.schedule(function()
+				vim.cmd("ClaudeCode")
+			end)
+		end, { noremap = true, silent = true, buffer = true })
   end,
 })
