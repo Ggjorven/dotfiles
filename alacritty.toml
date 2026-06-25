@@ -54,3 +54,13 @@ y = 0
 [font.glyph_offset]
 x = 0
 y = 0
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B[13;2u"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control"
+chars = "\u001B[13;5u"
