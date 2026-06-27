@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>cc", "<cmd>ClaudeCode<CR>", { desc = "Toggle Claude
 vim.api.nvim_create_autocmd("TermOpen", {
 	pattern = "term://*claude*",
 	callback = function()
-		-- Single Esc passes through (e.g. to fzf, lazygit, etc.)
+		-- Single Esc passes through
 		vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, buffer = true })
 		-- Double Esc exits terminal mode
 		vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, buffer = true })
