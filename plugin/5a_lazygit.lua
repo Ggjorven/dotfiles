@@ -21,9 +21,9 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	pattern = "term://*lazygit*",
 	callback = function()
 		-- Single Esc passes through
-		vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, buffer = true })
+		--  vim.keymap.set("t", "<Esc>", "<Esc>", { noremap = true, silent = true, buffer = true })
 		-- Double Esc exits terminal mode
-		vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, buffer = true })
+		-- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { noremap = true, silent = true, buffer = true })
 
 		-- Toggleterm like keymap to close
 		vim.keymap.set("t", "<C-\\>", "<cmd>bdelete!<CR>", { noremap = true, silent = true, buffer = true })
