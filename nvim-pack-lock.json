@@ -86,6 +86,10 @@
       "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
       "src": "https://github.com/rcarriga/nvim-notify"
     },
+    "obsession": {
+      "rev": "ed9dfc7c2cc917ace8b24f4f9f80a91e05614b63",
+      "src": "https://github.com/tpope/vim-obsession"
+    },
     "onedark": {
       "rev": "df4792accde9db0043121f32628bcf8e645d9aea",
       "src": "https://github.com/navarasu/onedark.nvim"
