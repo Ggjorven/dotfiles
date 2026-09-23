@@ -76,6 +76,18 @@ Leader key: `Space`
 | `<leader>cf` | Show floating diagnostic |
 | `<leader>cd` | Show diagnostics |
 
+---
+
+## Debugger
+
+| Key | Action |
+|-----|--------|
+| `<leader>dt` | Toggle opening of debugger view window |
+| `<leader>db` | Toggle a breakpoint on current line |
+| `<leader>dc` | Start or Continue debugger |
+| `<leader>dw` | Watch variable |
+| `<leader>dx` | Stop debugger |
+| `<leader>dq` | Stop debugger |
 
 ---
 
