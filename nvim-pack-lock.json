@@ -86,6 +86,10 @@
       "src": "https://github.com/nvim-mini/mini.files",
       "version": "'stable'"
     },
+    "multicursor": {
+      "rev": "704b99f10a72cc05d370cfeb294ff83412a8ab55",
+      "src": "https://github.com/jake-stewart/multicursor.nvim"
+    },
     "notify": {
       "rev": "8701bece920b38ea289b457f902e2ad184131a5d",
       "src": "https://github.com/rcarriga/nvim-notify"
