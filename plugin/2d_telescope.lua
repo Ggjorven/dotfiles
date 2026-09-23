@@ -14,14 +14,57 @@ vim.pack.add({
 	},
 	{
 		src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim",
-		name = "telescope-fzf-native"
+		name = "telescope-fzf-native",
+		build = "make",
 	}
 })
 
 ----------------------------------------------
 -- Setup
 ----------------------------------------------
-require("telescope").load_extension("notify")
+local telescope_config = require("telescope")
+
+local file_ranks = {
+    cpp = 1, c = 1, h = 1, hpp = 1, cs = 1, java = 1,
+    lua = 2, py = 2,
+    md = 3,
+}
+
+local function tiebreak(current_entry, existing_entry, _)
+    local c_path = current_entry.path or current_entry.filename or current_entry.value or ""
+    local e_path = existing_entry.path or existing_entry.filename or existing_entry.value or ""
+
+    local c_ext = c_path:match("%.([^%.]+)$")
+    local e_ext = e_path:match("%.([^%.]+)$")
+
+    local c_rank = c_ext and file_ranks[c_ext] or 4
+    local e_rank = e_ext and file_ranks[e_ext] or 4
+
+    if c_rank ~= e_rank then
+        return c_rank < e_rank
+    end
+
+    -- Fallback: short path wins (default behaviour)
+    return #c_path < #e_path
+end
+
+-- 3. Apply the tiebreak and load extensions
+telescope_config.setup({
+    defaults = {
+        tiebreak = tiebreak,
+    },
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        }
+    }
+})
+
+telescope_config.load_extension("fzf")
+telescope_config.load_extension("notify")
 
 ----------------------------------------------
 -- Keymaps
