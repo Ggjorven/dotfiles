@@ -1,21 +1,21 @@
 vim.pack.add({
 	{
 		src = "https://github.com/neovim/nvim-lspconfig",
-		name = "lspconfig"
+		name = "lspconfig",
 	},
 	{
 		src = "https://github.com/saghen/blink.cmp",
 		name = "blink-cmp",
-		version = "v1"
+		version = "v1",
 	},
 	{
 		src = "https://github.com/L3MON4D3/LuaSnip",
-		name = "luasnip"
+		name = "luasnip",
 	},
 	{
 		src = "https://github.com/rafamadriz/friendly-snippets",
-		name = "friendly-snippets"
-	}
+		name = "friendly-snippets",
+	},
 })
 
 ----------------------------------------------
@@ -32,15 +32,15 @@ require("blink-cmp").setup({
 		},
 		documentation = {
 			auto_show = true,
-			auto_show_delay_ms = 500
+			auto_show_delay_ms = 500,
 		},
 		menu = {
 			auto_show = true,
 			auto_show_delay_ms = 0,
 			draw = {
 				treesitter = { "lsp" },
-				columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } }
-			}
+				columns = { { "kind_icon", "label", "label_description", gap = 1 }, { "kind" } },
+			},
 		},
 	},
 	snippets = {
@@ -52,21 +52,21 @@ require("blink-cmp").setup({
 		["<C-CR>"] = { "accept", "fallback" },
 		["<Tab>"] = { "select_next", "fallback" },
 		["<S-Tab>"] = { "select_prev", "fallback" },
-		["<C-l>"] = { "snippet_forward", "fallback" }
-	}
+		["<C-l>"] = { "snippet_forward", "fallback" },
+	},
 })
 -- vim.lsp.inlay_hint.enable(true)
 vim.diagnostic.config({
 	virtual_text = {
-		severity = { min = vim.diagnostic.severity.INFO }
+		severity = { min = vim.diagnostic.severity.INFO },
 	},
 	signs = {
-		severity = { min = vim.diagnostic.severity.INFO }
+		severity = { min = vim.diagnostic.severity.INFO },
 	},
 	underline = {
-		severity = { min = vim.diagnostic.severity.INFO }
+		severity = { min = vim.diagnostic.severity.INFO },
 	},
-	virtual_lines = false
+	virtual_lines = false,
 })
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -92,10 +92,10 @@ vim.lsp.config("pyright", {
 		python = {
 			analysis = {
 				inlayHints = {
-					variableTypes        = true,
-					functionReturnTypes  = true,
-					callArgumentNames    = true,
-					pytestParameters     = true,
+					variableTypes = true,
+					functionReturnTypes = true,
+					callArgumentNames = true,
+					pytestParameters = true,
 				},
 			},
 		},
@@ -113,18 +113,18 @@ vim.lsp.config("clangd", {
 		"--fallback-style=llvm",
 	},
 	init_options = {
-		usePlaceholders      = true,
-		completeUnimported   = true,
-		clangdFileStatus     = true,
+		usePlaceholders = true,
+		completeUnimported = true,
+		clangdFileStatus = true,
 	},
 	-- Inlay hints are native in clangd 14+; toggled via vim.lsp.inlay_hint
 	settings = {
 		clangd = {
 			InlayHints = {
-				Enabled         = true,
-				ParameterNames  = true,
-				DeducedTypes    = true,
-				Designators     = true,
+				Enabled = true,
+				ParameterNames = true,
+				DeducedTypes = true,
+				Designators = true,
 			},
 		},
 	},
@@ -134,18 +134,18 @@ vim.lsp.config("clangd", {
 vim.lsp.config("csharp_ls", {
 	settings = {
 		["csharp|inlay_hints"] = {
-			csharp_enable_inlay_hints_for_implicit_object_creation    = true,
-			csharp_enable_inlay_hints_for_implicit_variable_types     = true,
-			csharp_enable_inlay_hints_for_lambda_parameter_types      = true,
-			csharp_enable_inlay_hints_for_types                       = true,
-			dotnet_enable_inlay_hints_for_indexer_parameters          = true,
-			dotnet_enable_inlay_hints_for_literal_parameters          = true,
-			dotnet_enable_inlay_hints_for_object_creation_parameters  = true,
-			dotnet_enable_inlay_hints_for_other_parameters            = true,
-			dotnet_enable_inlay_hints_for_parameters                  = true,
-			dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix  = true,
-			dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name    = true,
-			dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent    = true,
+			csharp_enable_inlay_hints_for_implicit_object_creation = true,
+			csharp_enable_inlay_hints_for_implicit_variable_types = true,
+			csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+			csharp_enable_inlay_hints_for_types = true,
+			dotnet_enable_inlay_hints_for_indexer_parameters = true,
+			dotnet_enable_inlay_hints_for_literal_parameters = true,
+			dotnet_enable_inlay_hints_for_object_creation_parameters = true,
+			dotnet_enable_inlay_hints_for_other_parameters = true,
+			dotnet_enable_inlay_hints_for_parameters = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
+			dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
 		},
 	},
 })
@@ -160,8 +160,8 @@ vim.lsp.config("sqlls", {
 vim.lsp.config("html", {
 	settings = {
 		html = {
-			format   = { enable = true },
-			hover    = { documentation = true, references = true },
+			format = { enable = true },
+			hover = { documentation = true, references = true },
 		},
 	},
 })
@@ -169,7 +169,7 @@ vim.lsp.config("html", {
 -- CSS (mason: css-lsp)
 vim.lsp.config("cssls", {
 	settings = {
-		css  = { validate = true, lint = { unknownAtRules = "ignore" } },
+		css = { validate = true, lint = { unknownAtRules = "ignore" } },
 		less = { validate = true },
 		scss = { validate = true },
 	},
@@ -177,30 +177,30 @@ vim.lsp.config("cssls", {
 
 -- JS / TS (mason: typescript-language-server)
 vim.lsp.config("ts_ls", {
-    settings = {
-        typescript = {
-            inlayHints = {
-                includeInlayParameterNameHints          = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints  = true,
-                includeInlayVariableTypeHints           = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints        = true,
-            },
-        },
-        javascript = {
-            inlayHints = {
-                includeInlayParameterNameHints          = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints  = true,
-                includeInlayVariableTypeHints           = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints        = true,
-            },
-        },
-    },
+	settings = {
+		typescript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+		javascript = {
+			inlayHints = {
+				includeInlayParameterNameHints = "all",
+				includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+				includeInlayFunctionParameterTypeHints = true,
+				includeInlayVariableTypeHints = true,
+				includeInlayPropertyDeclarationTypeHints = true,
+				includeInlayFunctionLikeReturnTypeHints = true,
+				includeInlayEnumMemberValueHints = true,
+			},
+		},
+	},
 })
 
 -- HASKELL (mason: haskell-language-server)
@@ -220,23 +220,26 @@ vim.lsp.config("rust_analyzer", {
 	settings = {
 		["rust-analyzer"] = {
 			rustfmt = {
-                overrideCommand = {
-                    "rustup", "run", "nightly", "rustfmt"
-                },
-            },
+				overrideCommand = {
+					"rustup",
+					"run",
+					"nightly",
+					"rustfmt",
+				},
+			},
 			inlayHints = {
-				bindingModeHints        = { enable = true },
-				chainingHints           = { enable = true },
-				closingBraceHints       = { enable = true, minLines = 10 },
-				closureReturnTypeHints  = { enable = "always" },
+				bindingModeHints = { enable = true },
+				chainingHints = { enable = true },
+				closingBraceHints = { enable = true, minLines = 10 },
+				closureReturnTypeHints = { enable = "always" },
 				expressionAdjustmentHints = { enable = "always" },
-				lifetimeElisionHints    = { enable = "always", useParameterNames = true },
-				parameterHints          = { enable = true },
-				rangeExclusiveHints     = { enable = true },
-				typeHints               = {
-					enable                       = true,
-					hideClosureInitialization    = false,
-					hideNamedConstructor         = false,
+				lifetimeElisionHints = { enable = "always", useParameterNames = true },
+				parameterHints = { enable = true },
+				rangeExclusiveHints = { enable = true },
+				typeHints = {
+					enable = true,
+					hideClosureInitialization = false,
+					hideNamedConstructor = false,
 				},
 			},
 			checkOnSave = true,
@@ -251,27 +254,27 @@ vim.lsp.config("jdtls", {
 			inlayHints = {
 				parameterNames = { enabled = "all" },
 			},
-			signatureHelp  = { enabled = true },
+			signatureHelp = { enabled = true },
 			contentProvider = { preferred = "fernflower" },
 		},
 	},
 })
 
 vim.lsp.enable({
-    "lua_ls",
-    "pyright",
-    "clangd",
-    "csharp_ls",
-    "sqlls",
-    "html",
-    "cssls",
-    "hls",
+	"lua_ls",
+	"pyright",
+	"clangd",
+	"csharp_ls",
+	"sqlls",
+	"html",
+	"cssls",
+	"hls",
 	"ts_ls",
-    "rust_analyzer",
-    "jdtls",
+	"rust_analyzer",
+	"jdtls",
 	"dockerls",
-    "docker_compose_language_service",
-    "docker_language_server",
+	"docker_compose_language_service",
+	"docker_language_server",
 })
 
 ----------------------------------------------
@@ -287,7 +290,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr, desc = "Hover documentation" })
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = bufnr, desc = "Code action" })
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { buffer = bufnr, desc = "Rename symbol" })
-		vim.keymap.set("n", "<leader>cf", vim.diagnostic.open_float, { buffer = bufnr, desc = "Show floating diagnostic" })
+		vim.keymap.set(
+			"n",
+			"<leader>cf",
+			vim.diagnostic.open_float,
+			{ buffer = bufnr, desc = "Show floating diagnostic" }
+		)
 		vim.keymap.set("n", "<leader>cd", function()
 			if vim.diagnostic.is_enabled() then
 				vim.diagnostic.enable(false)
@@ -305,18 +313,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = {
-		"*.cpp", "*.c", "*.h", "*.hpp", "*.m", "*.mm", "*.cc", "*.cxx", "*.hxx",
+	pattern = {
+		"*.cpp",
+		"*.c",
+		"*.h",
+		"*.hpp",
+		"*.m",
+		"*.mm",
+		"*.cc",
+		"*.cxx",
+		"*.hxx",
 		"*.rs",
 		"*.cs",
 		"*.java",
 		"*.hs",
 		"*.lua",
 		"*.py",
-		"*.sh", "*.bash",
-		"*.md"
+		"*.sh",
+		"*.bash",
+		"*.md",
 	},
-    callback = function()
-        vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
-    end,
+	callback = function()
+		vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
+	end,
 })
