@@ -305,7 +305,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = { "*.rs", "*.hs", "*.java" }, -- TODO: Add more language files when necessary 
+    pattern = {
+		"*.cpp", "*.c", "*.h", "*.hpp", "*.m", "*.mm", "*.cc", "*.cxx", "*.hxx",
+		"*.rs",
+		"*.cs",
+		"*.java",
+		"*.hs",
+		"*.lua",
+		"*.py",
+		"*.sh", "*.bash",
+		"*.md"
+	},
     callback = function()
         vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
     end,
