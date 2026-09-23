@@ -25,8 +25,8 @@ vim.pack.add({
 local telescope_config = require("telescope")
 
 local file_ranks = {
-    cpp = 1, c = 1, h = 1, hpp = 1, cs = 1, java = 1,
-    lua = 2, py = 2,
+    cpp = 1, c = 1, h = 1, hpp = 1, rs = 1, cs = 1, java = 1, hs = 1,
+    lua = 2, py = 2, sh = 2, bash = 2,
     md = 3,
 }
 
