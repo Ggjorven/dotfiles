@@ -27,11 +27,19 @@ require("mini.files").setup({
 ----------------------------------------------
 -- Keymaps
 ----------------------------------------------
+local function open_minifiles(dir)
+    if vim.bo.filetype == "minifiles" then return end
+    require("mini.files").open(dir, false) -- false, don't restore cached state
+end
+
 vim.keymap.set("n", "<leader>e", function()
-	local buf_dir = vim.fn.expand("%:p:h") -- get current buffer"s directory
-	require("mini.files").open(buf_dir)
+    local path = vim.fn.expand("%:p:h")
+    if path == "" or vim.fn.isdirectory(path) == 0 then
+        path = vim.fn.getcwd()
+    end
+    open_minifiles(path)
 end, { desc = "Open MiniFiles at current buffer directory" })
 
 vim.keymap.set("n", "<leader>E", function()
-	require("mini.files").open()
+    open_minifiles()
 end, { desc = "Open MiniFiles" })
