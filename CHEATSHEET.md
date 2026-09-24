@@ -238,3 +238,11 @@ Leader key: `Space`
 | `zz` | Center view window |
 | `=` | Format selection or text object like `ap` (paragraph) |
 | `q{r}` / `@{r}` | Record / replay macro in register `r` |
+
+## Lazygit
+
+
+| Key | Action |
+|-----|--------|
+| `Enter` | On a file (2) this goes to line staging |
+| `a` | While staging lines (0) this switches between hunk and single |
