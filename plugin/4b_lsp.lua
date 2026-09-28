@@ -331,7 +331,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		"*.py",
 		"*.sh",
 		"*.bash",
-		"*.md",
+		-- "*.md",
 	},
 	callback = function()
 		vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
