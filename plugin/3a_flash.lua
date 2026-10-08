@@ -2,7 +2,7 @@ vim.pack.add({
 	{
 		src = "https://github.com/folke/flash.nvim",
 		name = "flash",
-	}
+	},
 })
 
 ----------------------------------------------
@@ -10,19 +10,22 @@ vim.pack.add({
 ----------------------------------------------
 require("flash").setup({
 	modes = {
+		-- labels = "abcdefghijklmnopqrtuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- 's' removed
 		char = {
 			enabled = true,
 			keys = {}, -- Disabled f/F, t/T & ;/,
-		}
-	}
+		},
+	},
 })
 
 ----------------------------------------------
 -- Commands
 ----------------------------------------------
-require("flash").toggle(true)
+-- require("flash").toggle(true)
 
 ----------------------------------------------
 -- Keymaps
 ----------------------------------------------
-vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+	require("flash").jump()
+end, { desc = "Flash" })
