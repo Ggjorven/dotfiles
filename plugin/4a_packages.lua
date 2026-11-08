@@ -43,7 +43,9 @@ require("mason-tool-installer").setup({
 		"codelldb",
 		"clangd",
 		"cpptools",
-		-- "cmake-language-server", -- Requires python <= 3.14
+		"clang-format",
+		"clang-tidy",
+		-- "cmake-language-server", -- Requires Python < 3.14
 
 		"asm-lsp",
 
@@ -62,7 +64,7 @@ require("mason-tool-installer").setup({
 		-- Requires ghcup
 		-- Optional: cabal install ormolu for auto tabs to spaces
 		"haskell-language-server",
-		-- "haskell-debug-adapter", -- FAILED to build
+		-- "haskell-debug-adapter", -- FAILED TO BUILD
 
 		-- Requires rustup with rustfmt (nightly)
 		"rust-analyzer",
@@ -75,5 +77,14 @@ require("mason-tool-installer").setup({
 		"docker-compose-language-service",
 		"docker-language-server",
 		"dockerfile-language-server",
+
+		-- Shell, build, configuration, and shader tooling
+		"bash-language-server",
+		"gh-actions-language-server",
+		"gradle-language-server",
+		"glsl_analyzer",
+		"json-lsp",
+		"yaml-language-server",
+		"systemd-lsp",
 	},
 })

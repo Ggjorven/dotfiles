@@ -104,6 +104,7 @@ vim.lsp.config("pyright", {
 
 -- C / C++ (mason: clangd)
 vim.lsp.config("clangd", {
+	-- clang-format supplies formatting & clang-tidy supplies the diagnostics enabled below.
 	cmd = {
 		"clangd",
 		"--background-index",
@@ -153,6 +154,15 @@ vim.lsp.config("csharp_ls", {
 			dotnet_suppress_inlay_hints_for_parameters_that_differ_only_by_suffix = true,
 			dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = true,
 			dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
+		},
+	},
+})
+
+-- GRADLE (mason: gradle-language-server)
+vim.lsp.config("gradle_ls", {
+	init_options = {
+		settings = {
+			gradleWrapperEnabled = true,
 		},
 	},
 })
@@ -267,10 +277,67 @@ vim.lsp.config("jdtls", {
 	},
 })
 
+-- BASH (mason: bash-language-server)
+vim.lsp.config("bashls", {
+	settings = {
+		bashIde = {
+			-- Avoid recursively indexing an entire home directory.
+			globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+		},
+	},
+})
+
+-- CMAKE (mason: cmake-language-server)
+vim.lsp.config("cmake", {
+	init_options = {
+		buildDirectory = "build",
+	},
+})
+
+-- GITHUB ACTIONS (mason: gh-actions-language-server)
+vim.lsp.config("gh_actions_ls", {
+	init_options = {},
+})
+
+-- GLSL (mason: glsl_analyzer)
+vim.lsp.config("glsl_analyzer", {
+	capabilities = {},
+})
+
+-- JSON (mason: json-lsp)
+vim.lsp.config("jsonls", {
+	init_options = {
+		provideFormatter = true,
+	},
+	settings = {},
+})
+
+-- YAML (mason: yaml-language-server)
+vim.lsp.config("yamlls", {
+	settings = {
+		redhat = { telemetry = { enabled = false } },
+		yaml = { format = { enable = true } },
+	},
+})
+
+-- SYSTEMD (mason: systemd-lsp)
+vim.lsp.config("systemd_lsp", {
+	settings = {},
+})
+
 vim.lsp.enable({
 	"lua_ls",
 	"pyright",
 	"clangd",
+	"asm_lsp",
+	"bashls",
+	"cmake",
+	"gh_actions_ls",
+	"gradle_ls",
+	"glsl_analyzer",
+	"jsonls",
+	"yamlls",
+	"systemd_lsp",
 	"csharp_ls",
 	"sqlls",
 	"html",
