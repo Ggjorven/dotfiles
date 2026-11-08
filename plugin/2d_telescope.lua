@@ -23,6 +23,7 @@ vim.pack.add({
 -- Setup
 ----------------------------------------------
 local telescope_config = require("telescope")
+local telescope_actions = require("telescope.actions")
 
 local file_ranks = {
 	cpp = 1,
@@ -67,6 +68,13 @@ end
 telescope_config.setup({
 	defaults = {
 		tiebreak = tiebreak,
+		mappings = {
+			i = {
+				-- Keep Tab navigation without Telescope's multi-selection markers.
+				["<Tab>"] = telescope_actions.move_selection_worse,
+				["<S-Tab>"] = telescope_actions.move_selection_better,
+			},
+		},
 	},
 	extensions = {
 		fzf = {
