@@ -130,6 +130,13 @@ vim.lsp.config("clangd", {
 	},
 })
 
+-- ASM (mason: asm-lsp)
+vim.lsp.config("asm_lsp", {
+	cmd = { "asm-lsp" },
+	filetypes = { "asm", "vmasm", "gas" },
+	root_markers = { ".git" },
+})
+
 -- C# (mason: csharp-language-server)
 vim.lsp.config("csharp_ls", {
 	settings = {

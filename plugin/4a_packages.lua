@@ -1,11 +1,11 @@
 vim.pack.add({
 	{
 		src = "https://github.com/mason-org/mason.nvim",
-		name = "mason"
+		name = "mason",
 	},
 	{
 		src = "https://github.com/mason-org/mason-lspconfig.nvim",
-		name = "mason-lspconfig"
+		name = "mason-lspconfig",
 	},
 	-- {
 	-- 	src = "jay-babu/mason-nvim-dap.nvim",
@@ -13,8 +13,8 @@ vim.pack.add({
 	-- },
 	{
 		src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-		name = "mason-tool-installer"
-	}
+		name = "mason-tool-installer",
+	},
 })
 
 ----------------------------------------------
@@ -45,6 +45,8 @@ require("mason-tool-installer").setup({
 		"cpptools",
 		-- "cmake-language-server", -- Requires python <= 3.14
 
+		"asm-lsp",
+
 		-- Requires dotnet (10)
 		"csharp-language-server",
 		"netcoredbg",
@@ -72,6 +74,6 @@ require("mason-tool-installer").setup({
 
 		"docker-compose-language-service",
 		"docker-language-server",
-		"dockerfile-language-server"
-	}
+		"dockerfile-language-server",
+	},
 })
